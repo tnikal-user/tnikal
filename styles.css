@@ -1,0 +1,380 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap');
+
+:root {
+  color-scheme: light;
+  --paper: #f4f2ec;
+  --ink: #202c2a;
+  --muted: #75807a;
+  --line: #deded5;
+  --green: #27675b;
+  --lime: #c4df70;
+  --coral: #d76b54;
+  font-family: 'DM Sans', sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  color: var(--ink);
+  background-color: var(--paper);
+  background-image: radial-gradient(#c8c8bd 0.65px, transparent 0.65px);
+  background-size: 13px 13px;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  color: inherit;
+}
+
+.shell {
+  width: min(100% - 40px, 620px);
+  margin: 0 auto;
+  padding: 30px 0 42px;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 16px;
+}
+
+.wordmark {
+  color: var(--ink);
+  font-size: 17px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.wordmark span {
+  color: var(--coral);
+}
+
+.date-label,
+.eyebrow,
+.progress-count {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.date-label {
+  margin: 0;
+  color: var(--muted);
+}
+
+.intro {
+  padding: 54px 0 36px;
+  animation: rise-in 500ms ease-out both;
+}
+
+.eyebrow {
+  margin: 0 0 14px;
+  color: var(--green);
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 14px;
+  font-size: clamp(42px, 10vw, 66px);
+  line-height: 0.98;
+  letter-spacing: 0;
+}
+
+h1 em {
+  color: var(--green);
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 600;
+}
+
+.intro-copy {
+  margin: 0;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.list-panel {
+  padding: 25px 27px 0;
+  border: 1px solid #d9d9cf;
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow: 5px 5px 0 #d9d9cf;
+  animation: rise-in 650ms 80ms ease-out both;
+}
+
+.list-heading-row {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+}
+
+.list-heading-row .eyebrow {
+  margin-bottom: 7px;
+}
+
+h2 {
+  margin-bottom: 0;
+  font-size: 23px;
+  letter-spacing: 0;
+}
+
+.progress-count {
+  margin: 0 0 3px;
+  color: var(--muted);
+}
+
+.progress-track {
+  height: 4px;
+  margin: 19px 0 21px;
+  overflow: hidden;
+  background: #e8e8df;
+}
+
+.progress-track span {
+  display: block;
+  width: 0;
+  height: 100%;
+  background: var(--green);
+  transition: width 180ms ease;
+}
+
+.task-form {
+  display: flex;
+  gap: 9px;
+}
+
+.task-form input {
+  width: 100%;
+  min-width: 0;
+  height: 47px;
+  padding: 0 13px;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  outline: none;
+  background: #fff;
+  font-size: 14px;
+}
+
+.task-form input:focus {
+  border-color: var(--green);
+  box-shadow: 0 0 0 2px rgba(39, 103, 91, 0.13);
+}
+
+.task-form input::placeholder {
+  color: #89918a;
+}
+
+.add-button {
+  flex: 0 0 47px;
+  height: 47px;
+  border: 0;
+  border-radius: 2px;
+  background: var(--green);
+  color: white;
+  cursor: pointer;
+  font-size: 27px;
+  line-height: 1;
+  transition: background 140ms ease, transform 140ms ease;
+}
+
+.add-button:hover {
+  transform: translateY(-1px);
+  background: #1e5148;
+}
+
+.task-list {
+  display: grid;
+  gap: 0;
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 54px;
+  border-bottom: 1px solid #e9e9e2;
+  animation: rise-in 220ms ease-out both;
+}
+
+.task-toggle {
+  display: grid;
+  flex: 0 0 19px;
+  width: 19px;
+  height: 19px;
+  place-items: center;
+  padding: 0;
+  border: 1px solid #aab1a8;
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+}
+
+.task-toggle[aria-pressed='true'] {
+  border-color: var(--green);
+  background: var(--green);
+  color: white;
+}
+
+.task-toggle[aria-pressed='true']::after {
+  content: '✓';
+  font-size: 12px;
+}
+
+.task-text {
+  flex: 1;
+  overflow-wrap: anywhere;
+  font-size: 14px;
+}
+
+.task-item.is-done .task-text {
+  color: #8b938d;
+  text-decoration: line-through;
+  text-decoration-color: #aab1a8;
+}
+
+.delete-button {
+  width: 30px;
+  height: 30px;
+  border: 0;
+  background: transparent;
+  color: #8a918b;
+  cursor: pointer;
+  font-size: 19px;
+}
+
+.delete-button:hover {
+  color: var(--coral);
+}
+
+.empty-state {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 94px;
+  color: var(--ink);
+}
+
+.empty-state[hidden] {
+  display: none;
+}
+
+.empty-mark {
+  display: grid;
+  flex: 0 0 38px;
+  width: 38px;
+  height: 38px;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--lime);
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+}
+
+.empty-state p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.empty-state p span {
+  color: var(--muted);
+}
+
+.list-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 53px;
+  margin-top: 4px;
+}
+
+.list-footer p {
+  margin: 0;
+  color: var(--muted);
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+}
+
+.clear-button {
+  padding: 7px 0 7px 8px;
+  border: 0;
+  background: transparent;
+  color: var(--green);
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.clear-button:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.footnote {
+  margin: 25px 0 0;
+  color: var(--muted);
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  text-align: center;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@keyframes rise-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 480px) {
+  .shell {
+    width: min(100% - 28px, 620px);
+    padding-top: 20px;
+  }
+
+  .intro {
+    padding: 43px 0 28px;
+  }
+
+  .list-panel {
+    padding: 21px 17px 0;
+  }
+
+  .task-form input {
+    font-size: 13px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

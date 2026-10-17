@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f4f2ec">
+    <title>Small Wins</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <a class="wordmark" href="./" aria-label="Small Wins home">SW<span>.</span></a>
+        <p class="date-label" id="today"></p>
+      </header>
+
+      <section class="intro" aria-labelledby="page-title">
+        <p class="eyebrow">A little progress, every day</p>
+        <h1 id="page-title">Make room<br>for <em>good work.</em></h1>
+        <p class="intro-copy">A short list is a kind place to start.</p>
+      </section>
+
+      <section class="list-panel" aria-labelledby="list-heading">
+        <div class="list-heading-row">
+          <div>
+            <p class="eyebrow">Your focus</p>
+            <h2 id="list-heading">Today's list</h2>
+          </div>
+          <p class="progress-count" id="progress-count" aria-live="polite">0 / 0</p>
+        </div>
+
+        <div class="progress-track" aria-hidden="true">
+          <span id="progress-bar"></span>
+        </div>
+
+        <form class="task-form" id="task-form">
+          <label class="visually-hidden" for="task-input">Add a task</label>
+          <input id="task-input" name="task" type="text" maxlength="100" placeholder="What would feel good to finish?" autocomplete="off" required>
+          <button class="add-button" type="submit" aria-label="Add task" title="Add task">+</button>
+        </form>
+
+        <ul class="task-list" id="task-list" aria-label="Tasks"></ul>
+
+        <div class="empty-state" id="empty-state">
+          <span class="empty-mark" aria-hidden="true">01</span>
+          <p>Nothing on the list yet.<br><span>Give your day a first small win.</span></p>
+        </div>
+
+        <footer class="list-footer">
+          <p id="remaining-count">A fresh page.</p>
+          <button class="clear-button" id="clear-completed" type="button">Clear completed</button>
+        </footer>
+      </section>
+
+      <p class="footnote">One thing at a time is still moving forward.</p>
+    </main>
+  </body>
+</html>
